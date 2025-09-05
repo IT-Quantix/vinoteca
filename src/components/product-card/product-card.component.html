@@ -1,0 +1,51 @@
+<mat-card class="wine-card stagger-item">
+      <div class="card-image-container">
+        <img
+          [src]="wine.image"
+          [alt]="wine.name"
+          class="wine-image"
+          loading="lazy">
+
+        <div class="rating-badge">
+          <mat-icon>star</mat-icon>
+          {{wine.rating}}
+        </div>
+
+      </div>
+
+      <mat-card-content class="card-content">
+        <div class="wine-header">
+          <h3 class="wine-name">{{wine.name}}</h3>
+          <div class = "category-chip" [ngClass]="getCategoryClass()">
+            {{getCategoryLabel()}}
+          </div>
+          <!-- <mat-chip class="category-chip" [ngClass]="getCategoryClass()">
+            {{getCategoryLabel()}}
+          </mat-chip> -->
+        </div>
+
+        <p class="vineyard">{{wine.vineyard}} • {{wine.year}}</p>
+        <p class="description">{{wine.description}}</p>
+
+        <div class="wine-details">
+          <span class="alcohol-content">
+            <mat-icon>local_bar</mat-icon>
+            {{wine.alcoholContent}}% Vol.
+          </span>
+        </div>
+
+        <div class="card-footer">
+          <div class="price-section">
+            <span class="price">${{getFormattedPrice()}}</span>
+          </div>
+          <button
+            mat-raised-button
+            class="add-to-cart-btn"
+            (click)="addToCart()"
+            [disabled]="isAdding">
+            <mat-icon>add_shopping_cart</mat-icon>
+            {{isAdding ? 'Agregando...' : 'Agregar'}}
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>

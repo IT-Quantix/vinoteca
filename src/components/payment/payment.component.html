@@ -1,0 +1,132 @@
+<section id="payment" class="payment-section">
+      <div class="container">
+        <h2 class="section-title">Finalizar Compra</h2>
+
+        <div class="payment-content">
+          <div class="payment-form-container">
+            <mat-card class="payment-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>payment</mat-icon>
+                  Datos de Pago
+                </mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                  <div class="form-section">
+                    <h3>Información Personal</h3>
+                    <div class="form-row">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Nombre completo</mat-label>
+                        <input matInput formControlName="fullName">
+                        <mat-error *ngIf="paymentForm.get('fullName')?.hasError('required')">
+                          El nombre es requerido
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email">
+                        <mat-error *ngIf="paymentForm.get('email')?.hasError('required')">
+                          El email es requerido
+                        </mat-error>
+                        <mat-error *ngIf="paymentForm.get('email')?.hasError('email')">
+                          Email inválido
+                        </mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Teléfono</mat-label>
+                        <input matInput formControlName="phone">
+                        <mat-error *ngIf="paymentForm.get('phone')?.hasError('required')">
+                          El teléfono es requerido
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="form-section">
+                    <h3>Dirección de Entrega</h3>
+                    <div class="form-row">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput formControlName="address">
+                      </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Ciudad</mat-label>
+                        <input matInput formControlName="city">
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Código Postal</mat-label>
+                        <input matInput formControlName="postalCode">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="form-section">
+                    <h3>Información de Tarjeta</h3>
+                    <div class="form-row">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Número de tarjeta</mat-label>
+                        <input matInput formControlName="cardNumber" placeholder="1234 5678 9012 3456">
+                        <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('required')">
+                          El número de tarjeta es requerido
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Fecha de vencimiento</mat-label>
+                        <input matInput formControlName="expiryDate" placeholder="MM/AA">
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>CVV</mat-label>
+                        <input matInput formControlName="cvv" placeholder="123">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    mat-raised-button 
+                    class="submit-btn"
+                    [disabled]="paymentForm.invalid || isProcessing">
+                    <mat-icon>credit_card</mat-icon>
+                    {{isProcessing ? 'Procesando...' : 'Confirmar Pago'}}
+                  </button>
+                </form>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <div class="order-summary">
+            <mat-card class="summary-card">
+              <mat-card-header>
+                <mat-card-title>Resumen del Pedido</mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                <div class="summary-item" *ngFor="let item of cartItems$ | async">
+                  <span class="item-name">{{item.wine.name}} x{{item.quantity}}</span>
+                  <span class="item-price">\${{item.wine.price * item.quantity | number:'1.0-0'}}</span>
+                </div>
+
+                <div class="summary-total">
+                  <span class="total-label">Total:</span>
+                  <span class="total-amount">\${{totalPrice$ | async | number:'1.0-0'}}</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </section>

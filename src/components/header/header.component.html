@@ -1,0 +1,31 @@
+<mat-toolbar class="wine-gradient header-toolbar">
+  <div class="container">
+    <!-- Logo a la izquierda -->
+    <div class="logo-section">
+      <mat-icon class="logo-icon">liquor</mat-icon>
+      <span class="logo-text">Vinoteca Premium</span>
+    </div>
+
+    <!-- Menu + carrito a la derecha -->
+    <div class="right-section" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-menu">
+        <button mat-button [routerLink]="['/home']"class="nav-link">Inicio</button>
+        <button mat-button [routerLink]="['/home']" (click)="scrollTo('about')" class="nav-link">Nosotros</button>
+        <button mat-button [routerLink]="['/vinos']" class="nav-link">Vinos</button>
+        <button mat-button [routerLink]="['/home']"(click)="scrollTo('contact')" class="nav-link">Contacto</button>
+      </nav>
+
+      <div class="cart-section">
+        <button
+          mat-icon-button
+          (click)="toggleCart()"
+          class="cart-button"
+          [matBadge]="(totalItems$ | async) || 0"
+          [matBadgeHidden]="(totalItems$ | async) === 0"
+          matBadgeColor="accent">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,106 @@
+.filter-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 24px rgba(139, 21, 56, 0.15);
+  border: 1px solid rgba(139, 21, 56, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(139, 21, 56, 0.18);
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.filter-header h3 {
+  color: var(--wine-primary);
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0;
+}
+
+.clear-btn {
+  color: var(--wine-secondary) !important;
+  font-weight: 500;
+  font-size: 14px;
+  background: rgba(139, 21, 56, 0.05);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: rgba(139, 21, 56, 0.1);
+  transform: scale(1.05);
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-form-field-outline {
+  border-color: var(--wine-primary) !important;
+  border-radius: 12px !important;
+}
+
+::ng-deep .mat-focused .mat-mdc-form-field-outline {
+  border-color: var(--wine-secondary) !important;
+}
+
+.price-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px;
+  background: rgba(139, 21, 56, 0.03);
+  border-radius: 12px;
+}
+
+.price-label {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--wine-primary);
+  background: rgba(139, 21, 56, 0.08);
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+/* Pista activa */
+::ng-deep .mat-mdc-slider .mdc-slider__track--active {
+  background: linear-gradient(90deg, var(--wine-primary), var(--wine-secondary)) !important;
+  height: 6px !important;
+  border-radius: 6px !important;
+}
+
+/* Pista inactiva */
+::ng-deep .mat-mdc-slider .mdc-slider__track--inactive {
+  background: rgba(139, 21, 56, 0.15) !important;
+  height: 6px !important;
+  border-radius: 6px !important;
+}
+
+
+::ng-deep .mat-mdc-slider .mdc-slider__thumb:hover {
+  transform: scale(1.15);
+}
+
+.mat-mdc-slider{
+  --mdc-slider-handle-color: var(--wine-secondary);
+
+}

@@ -1,0 +1,30 @@
+<section class="wines-section">
+  <div class="container">
+    <h2 class="section-title">Nuestra Selección</h2>
+    <p class="section-subtitle">
+      Todos nuestros vinos cuidadosamente seleccionados para vos
+    </p>
+
+    <div class="wines-layout">
+      <!-- Filtros a la izquierda -->
+      <aside class="filters">
+        <app-filter></app-filter>
+      </aside>
+
+      <!-- Grilla de productos a la derecha -->
+      <div class="wines-grid">
+        <app-product-card
+          *ngFor="let wine of wines$ | async"
+          [wine]="wine">
+        </app-product-card>
+      </div>
+    </div>
+
+    <div class="btn-back">
+      <button mat-raised-button color="primary" (click)="goToHome()">
+        <mat-icon>arrow_back</mat-icon>
+        Volver a Home
+      </button>
+    </div>
+  </div>
+</section>

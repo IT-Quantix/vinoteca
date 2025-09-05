@@ -1,0 +1,39 @@
+<div class="filter-container">
+      <div class="filter-header">
+        <h3>Filtros</h3>
+        <button mat-button (click)="clearFilters()" class="clear-btn">Limpiar</button>
+      </div>
+
+      <div class="filter-content">
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de vino</mat-label>
+          <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange()">
+            <mat-option [value]="undefined">Todos</mat-option>
+            <mat-option [value]="WineCategory.TINTO">Tinto</mat-option>
+            <mat-option [value]="WineCategory.BLANCO">Blanco</mat-option>
+            <mat-option [value]="WineCategory.ROSADO">Rosado</mat-option>
+            <mat-option [value]="WineCategory.ESPUMANTE">Espumante</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+       <div class="price-filter">
+        <label class="price-label">Rango de precio: ${{minPrice}} - ${{maxPrice}}</label>
+        <mat-slider
+          min="1"
+          max="200000"
+          step="250"
+          discrete
+          [displayWith]="formatPrice">
+          <input
+            matSliderStartThumb
+            [(ngModel)]="minPrice"
+            (ngModelChange)="onPriceChange()">
+          <input
+            matSliderEndThumb
+            [(ngModel)]="maxPrice"
+            (ngModelChange)="onPriceChange()">
+        </mat-slider>
+      </div>
+
+      </div>
+    </div>

@@ -1,0 +1,11 @@
+    <div class="search-container">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Buscar vinos...</mat-label>
+        <input 
+          matInput 
+          [(ngModel)]="searchTerm"
+          (input)="onSearchChange($event)"
+          placeholder="Busca por nombre, bodega o descripción">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>

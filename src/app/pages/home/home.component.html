@@ -1,0 +1,126 @@
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+  <div class="hero-content">
+    <div class="hero-text fade-in">
+      <h1 class="hero-title">Descubre los Mejores Vinos</h1>
+      <p class="hero-subtitle">
+        Una selección exclusiva de vinos premium de las mejores bodegas del mundo.
+        Cada botella cuenta una historia única de tradición y excelencia.
+      </p>
+      <button mat-raised-button class="hero-btn" (click)="scrollTo('wines')">
+        <mat-icon>wine_bar</mat-icon>
+        Explorar Vinos
+      </button>
+    </div>
+
+    <div class="hero-image fade-in">
+      <img src="assets/img/viñedo.jpg" alt="Vinos Premium">
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container">
+    <h2 class="section-title">Sobre Nosotros</h2>
+    <div class="about-content">
+      <div class="about-text stagger-item">
+        <h3>Pasión por el Vino</h3>
+        <p>
+          Desde 1985, seleccionamos y ofrecemos los mejores vinos del mundo.
+          Nuestro equipo de sommeliers viaja continuamente para descubrir
+          auténticas joyas enológicas que deleiten los paladares más exigentes.
+        </p>
+
+        <div class="features">
+          <div class="feature stagger-item">
+            <mat-icon>verified</mat-icon>
+            <div>
+              <h4>Calidad Garantizada</h4>
+              <p>Cada vino es cuidadosamente seleccionado y almacenado en condiciones óptimas.</p>
+            </div>
+          </div>
+
+          <div class="feature stagger-item">
+            <mat-icon>local_shipping</mat-icon>
+            <div>
+              <h4>Envío Seguro</h4>
+              <p>Empaque especializado para garantizar que tus vinos lleguen en perfectas condiciones.</p>
+            </div>
+          </div>
+
+          <div class="feature stagger-item">
+            <mat-icon>support_agent</mat-icon>
+            <div>
+              <h4>Asesoramiento Experto</h4>
+              <p>Nuestros sommeliers te ayudan a elegir el vino perfecto para cada ocasión.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image stagger-item">
+        <img src="https://images.pexels.com/photos/1407846/pexels-photo-1407846.jpeg" alt="Bodega Premium">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wines Section -->
+<section id="wines" class="wines-section">
+  <div class="container">
+    <h2 class="section-title">Nuestra Selección</h2>
+
+    <div class="wines-grid">
+      <app-product-card
+        *ngFor="let wine of topWines$ | async"
+        [wine]="wine">
+      </app-product-card>
+
+      <div class="ver-all-btn">
+        <button mat-raised-button class="hero-btn" (click)="goToVinos()" >
+          <mat-icon>add</mat-icon>
+          Ver más
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="(filteredWines$ | async)?.length === 0" class="no-results">
+      <mat-icon>wine_bar</mat-icon>
+      <h3>No se encontraron vinos</h3>
+      <p>Intenta ajustar los filtros o realizar una nueva búsqueda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Contacto</h2>
+
+    <div class="contact-content">
+      <div class="contact-info stagger-item">
+        <h3>Visítanos</h3>
+        <p>
+          <mat-icon>location_on</mat-icon>
+          Av. Vinos Premium 1234, Córdoba, Argentina
+        </p>
+        <p>
+          <mat-icon>phone</mat-icon>
+          +54 11 2345-6789
+        </p>
+        <p>
+          <mat-icon>email</mat-icon>
+          info&#64;vinotecapremium.com
+        </p>
+      </div>
+
+      <div class="contact-map stagger-item">
+        <div class="map-placeholder">
+          <mat-icon>map</mat-icon>
+          <p>Ubicación de la tienda</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

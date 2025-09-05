@@ -1,0 +1,90 @@
+    .header-toolbar {
+      height: 80px;
+      box-shadow: 0 4px 20px rgba(139, 21, 56, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      font-size: 32px;
+      color: var(--wine-secondary);
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: rgb(0, 0, 0);
+      letter-spacing: 0.5px;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+
+    .nav-menu {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-link {
+      color: rgb(0, 0, 0) !important;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .cart-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-button {
+      color: rgb(0, 0, 0) !important;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
+
+    .cart-button:hover {
+      transform: scale(1.2);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .logo-text {
+        font-size: 18px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+    }

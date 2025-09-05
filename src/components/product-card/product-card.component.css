@@ -1,0 +1,199 @@
+.wine-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(139, 21, 56, 0.1);
+      position: relative;
+    }
+
+    .card-image-container {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .wine-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .wine-card:hover .wine-image {
+      transform: scale(1.05);
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      display: flex;
+      font-size: 12px;
+      font-weight: 600;
+      justify-content: center;
+
+      display: inline-flex;       /* como un chip */
+      align-items: center;        /* centra verticalmente */
+      padding: 5px 10px;           /* espacio interno */
+      border-radius: 12px;        /* bordes redondeados */
+    }
+
+    .rating-badge mat-icon {
+      font-size: 16px;
+      color: var(--wine-secondary);
+      display: flex;
+      align-items: center;
+
+    }
+
+    .card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .wine-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .wine-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--wine-primary);
+      margin: 0;
+      flex: 1;
+    }
+
+    .category-chip {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      display: inline-flex;       /* como un chip */
+      align-items: center;        /* centra verticalmente */
+      justify-content: center;    /* centra horizontalmente */
+      padding: 5px 10px;           /* espacio interno */
+      border-radius: 12px;        /* bordes redondeados */
+
+    }
+
+
+    .category-tinto {
+          background-color: #8B1538 !important;
+          color: rgb(255, 255, 255) !important;
+    }
+
+
+
+    .category-blanco {
+      background-color: #F7E98E !important;
+      color: #333 !important;
+    }
+
+    .category-rosado {
+      background-color: #FFB6C1 !important;
+      color: #333 !important;
+    }
+
+    .category-espumante {
+      background-color: #F7E7CE !important;
+      color: #333 !important;
+    }
+
+    .vineyard {
+      font-size: 14px;
+      color: var(--wine-text-light);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .description {
+      font-size: 14px;
+      color: var(--wine-text);
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .wine-details  {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+    }
+
+    .alcohol-content {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      color: var(--wine-text-light);
+      font-weight: 500;
+    }
+
+    .alcohol-content mat-icon {
+      font-size: 16px;
+      color: var(--wine-secondary);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--wine-primary);
+    }
+
+    .add-to-cart-btn {
+      background: linear-gradient(135deg, var(--wine-primary), #A91B48) !important;
+      color: white !important;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 21, 56, 0.3);
+    }
+
+    .add-to-cart-btn:disabled {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .card-content {
+        padding: 16px;
+      }
+
+      .wine-name {
+        font-size: 16px;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+
+      .add-to-cart-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+    }
+
+

@@ -1,0 +1,14 @@
+<mat-drawer-container class="app-drawer-container">
+  <!-- Contenido principal de la app -->
+  <div class="app-main-content">
+    <app-header></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+    <app-notifications></app-notifications>
+  </div>
+
+  <!-- Drawer del carrito -->
+  <app-cart></app-cart>
+</mat-drawer-container>

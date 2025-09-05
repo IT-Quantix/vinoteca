@@ -1,0 +1,66 @@
+<mat-drawer
+  mode="over"
+  position="end"
+  class="cart-drawer"
+  [opened]="(cartVisible$ | async) ?? false">
+
+  <div class="cart-header">
+    <h2>
+      <mat-icon>shopping_cart</mat-icon>
+      Mi Carrito
+    </h2>
+    <button mat-icon-button (click)="closeCart()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="cart-content">
+    <div *ngIf="(cartItems$ | async)?.length === 0" class="empty-cart">
+      <mat-icon class="empty-icon">wine_bar</mat-icon>
+      <p>Tu carrito está vacío</p>
+      <small>Agrega algunos vinos para comenzar</small>
+    </div>
+
+    <div *ngIf="(cartItems$ | async)?.length! > 0" class="cart-items">
+      <div *ngFor="let item of cartItems$ | async" class="cart-item">
+        <div class="item-image">
+          <img [src]="item.wine.image" [alt]="item.wine.name">
+        </div>
+
+        <div class="item-details">
+          <h4>{{item.wine.name}}</h4>
+          <p class="vineyard">{{item.wine.vineyard}}</p>
+          <p class="price">${{item.wine.price | number:'1.0-0'}}</p>
+        </div>
+
+        <div class="quantity-controls">
+          <button mat-icon-button (click)="decreaseQuantity(item.wine.id)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <span class="quantity">{{item.quantity}}</span>
+          <button mat-icon-button (click)="increaseQuantity(item.wine.id)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+
+        <button mat-icon-button (click)="removeItem(item.wine.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="cart-summary">
+        <div class="total-section">
+          <span class="total-label">Total:</span>
+          <span class="total-price">${{totalPrice$ | async | number:'1.0-0'}}</span>
+        </div>
+
+        <button mat-raised-button class="checkout-btn" (click)="proceedToCheckout()">
+          <mat-icon>payment</mat-icon>
+          Proceder al Pago
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-drawer>

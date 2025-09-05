@@ -1,0 +1,41 @@
+    .search-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 30px;
+    }
+
+    .search-field {
+      width: 100%;
+    }
+    
+
+    ::ng-deep .search-field .mat-mdc-form-field-outline {
+      border-color: var(--wine-primary) !important;
+    }
+
+    ::ng-deep .search-field.mat-focused .mat-mdc-form-field-outline {
+      border-color: var(--wine-secondary) !important;
+      border-width: 2px !important;
+    }
+
+    ::ng-deep .search-field .mat-mdc-form-field-label {
+      color: var(--wine-text-light) !important;
+    }
+
+    ::ng-deep .search-field.mat-focused .mat-mdc-form-field-label {
+      color: var(--wine-secondary) !important;
+    }
+
+    ::ng-deep .search-field .mat-icon {
+      color: var(--wine-primary);
+    }
+
+    input {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .search-container {
+        margin: 0 auto 20px;
+      }
+    }
