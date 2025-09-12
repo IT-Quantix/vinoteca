@@ -5,7 +5,7 @@ import { UpdateWineDto } from './dto/update-wine.dto';
 @Injectable()
 export class WinesService {
   getAllWines() {
-    return 'Todos los vinos';
+    return "wines";
   }
 
   getWineById(id: string) {
