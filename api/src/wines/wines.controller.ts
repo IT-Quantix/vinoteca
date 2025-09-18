@@ -13,11 +13,7 @@ import { UpdateWineDto } from './dto/update-wine.dto';
 
 @Controller('/wines')
 export class WinesController {
-  winesService: WinesService;
-
-  constructor(winesService: WinesService) {
-    this.winesService = winesService;
-  }
+  constructor(private readonly winesService: WinesService) {}
 
   @Get()
   getAllWines() {
@@ -25,7 +21,7 @@ export class WinesController {
   }
 
   @Get('/:id')
-  getWineById(@Param('id') id: string) {
+  getWineById(@Param('id') id: number) {
     return this.winesService.getWineById(id);
   }
 
@@ -34,13 +30,13 @@ export class WinesController {
     return this.winesService.createWine(wine);
   }
 
-  @Delete()
-  deleteWine() {
-    return this.winesService.deleteWine();
+  @Delete('/:id')
+  deleteWine(@Param('id') id: number) {
+    return this.winesService.deleteWine(id);
   }
 
-  @Patch()
-  patchWine(@Body() wine: UpdateWineDto) {
-    return this.winesService.updateWine(wine);
+  @Patch('/:id')
+  patchWine(@Param('id') id: number, @Body() wine: UpdateWineDto) {
+    return this.winesService.updateWine(id, wine);
   }
 }

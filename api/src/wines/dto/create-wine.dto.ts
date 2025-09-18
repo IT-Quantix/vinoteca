@@ -10,8 +10,8 @@ export class CreateWineDto {
   @IsString()
   description: string;
 
-  @IsString()
-  vol_alcohol: string;
+  @IsNumber()
+  vol_alcohol: number;
 
   @IsString()
   brand: string;
